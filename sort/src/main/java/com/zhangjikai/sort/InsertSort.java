@@ -1,6 +1,5 @@
 package com.zhangjikai.sort;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,8 +11,6 @@ public class InsertSort<T extends Comparable> implements Sort<T> {
     @Override
     public List<T> sort(List<T> randomData) {
         T tmp, tmp2;
-        /*List<T> results = new ArrayList<>();
-        results.add(randomData.get(0));*/
         int i, j;
         for (i = 1; i < randomData.size(); i++) {
             tmp = randomData.get(i);
@@ -26,7 +23,7 @@ public class InsertSort<T extends Comparable> implements Sort<T> {
                 randomData.set(j + 1, tmp2);
             }
             randomData.set(j + 1, tmp);
-            System.out.println(randomData);
+            // System.out.println(randomData);
         }
         return randomData;
     }
