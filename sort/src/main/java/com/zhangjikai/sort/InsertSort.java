@@ -3,7 +3,7 @@ package com.zhangjikai.sort;
 import java.util.List;
 
 /**
- * ²åÈëÅÅĞò
+ * æ’å…¥æ’åº
  */
 public class InsertSort<T extends Comparable> implements Sort<T> {
 
