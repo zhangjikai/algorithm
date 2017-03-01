@@ -1,7 +1,4 @@
-import com.zhangjikai.sort.InsertSort;
-import com.zhangjikai.sort.SelectionSort;
-import com.zhangjikai.sort.ShellSort;
-import com.zhangjikai.sort.Sort;
+import com.zhangjikai.sort.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -44,6 +41,13 @@ public class TestSort {
     @Test
     public void testSelectionSort() {
         Sort<Integer> sort = new SelectionSort<>();
+        List<Integer> result = sort.sort(randomList);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testHeapSort() {
+        Sort<Integer> sort = new HeapSort<>();
         List<Integer> result = sort.sort(randomList);
         System.out.println(result);
     }

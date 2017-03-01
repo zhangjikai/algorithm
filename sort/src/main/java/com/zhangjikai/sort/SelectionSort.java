@@ -17,12 +17,10 @@ public class SelectionSort<T extends Comparable> implements Sort<T> {
                 if(randomData.get(j).compareTo(randomData.get(minPos)) < 0) {
                     minPos = j;
                 }
-
             }
             tmp = randomData.get(i);
             randomData.set(i, randomData.get(minPos));
             randomData.set(minPos, tmp);
-
         }
         return randomData;
     }
