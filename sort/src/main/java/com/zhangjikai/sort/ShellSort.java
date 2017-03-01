@@ -13,7 +13,6 @@ public class ShellSort<T extends Comparable> implements Sort<T> {
         T tmpI, tmpJ;
         int i, j, k;
         while (increase >= 1) {
-
             for (k = 0; k < increase; k++) {
                 for (i = k; i < randomData.size(); i += increase) {
                     tmpI = randomData.get(i);
@@ -24,13 +23,11 @@ public class ShellSort<T extends Comparable> implements Sort<T> {
                         }
                         randomData.set(j + increase, tmpJ);
                     }
-
                     randomData.set(j + increase, tmpI);
-
                 }
 
             }
-            System.out.println(randomData);
+            //System.out.println(randomData);
             increase /= 2;
         }
         return randomData;
