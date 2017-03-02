@@ -18,8 +18,9 @@ public class TestSort {
     public void init() {
         int[] arr = new int[]{49, 38, 65, 97, 76, 13, 27, 49};
         arr = new int[]{49, 38, 65, 97, 76, 13, 27, 49, 55, 04};
+        arr = new int[]{ 1};
         randomList = new ArrayList<>();
-        for(int i : arr) {
+        for (int i : arr) {
             randomList.add(i);
         }
     }

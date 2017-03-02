@@ -15,7 +15,7 @@ public class HeapSort<T extends Comparable> implements Sort<T> {
             heapTree.insertNode(t);
         }
         int length = heapTree.getLength();
-        for(int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             results.add(heapTree.deleteMin());
         }
         return results;
@@ -91,40 +91,23 @@ public class HeapSort<T extends Comparable> implements Sort<T> {
             length--;
 
             int index = 1;
-            int leftChildPos, rightChildPos, minChildPos = 1;
-            T leftChild, rightChild, minChild;
-            while (index < length && index * 2 < length) {
-                leftChildPos = index * 2 - 1;
-                rightChildPos = index * 2;
-                if (rightChildPos >= length) {
-                    minChildPos = leftChildPos;
-                    minChild = array.get(leftChildPos);
-                } else {
-                    leftChild = array.get(leftChildPos);
-                    rightChild = array.get(rightChildPos);
-                    if (rightChild.compareTo(leftChild) < 0) {
-                        minChild = rightChild;
-                        minChildPos = rightChildPos;
-                    } else {
-                        minChild = leftChild;
-                        minChildPos = leftChildPos;
-                    }
+            int childPos;
+            while (index < length && index * 2 <= length) {
+
+                childPos = index * 2 - 1;
+                if (childPos + 1 < length && array.get(childPos + 1).compareTo(array.get(childPos)) < 0) {
+                    childPos++;
                 }
 
-                if (minChild.compareTo(last) < 0) {
-                    array.set(index - 1, minChild);
-                    array.set(minChildPos, last);
-                    index *= 2;
+                if (array.get(childPos).compareTo(last) < 0) {
+                    array.set(index - 1, array.get(childPos));
+                    index = childPos + 1;
                 } else {
-                    minChildPos = index;
-                    array.set(index - 1, last);
                     break;
                 }
-
-
             }
-            //array.set(minChildPos, last);
 
+            array.set(index - 1, last);
             return min;
         }
 
