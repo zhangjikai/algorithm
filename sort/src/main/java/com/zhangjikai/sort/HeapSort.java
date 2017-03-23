@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ZhangJikai on 2017/3/1.
+ * 堆排序
  */
 public class HeapSort<T extends Comparable> implements Sort<T> {
     @Override
