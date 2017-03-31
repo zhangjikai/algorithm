@@ -18,7 +18,7 @@ public class TestSort {
     public void init() {
         int[] arr = new int[]{49, 38, 65, 97, 76, 13, 27, 49};
         arr = new int[]{49, 38, 65, 97, 76, 13, 27, 49, 55, 04};
-        arr = new int[]{ 1};
+        //arr = new int[]{ 1};
         randomList = new ArrayList<>();
         for (int i : arr) {
             randomList.add(i);
@@ -49,6 +49,13 @@ public class TestSort {
     @Test
     public void testHeapSort() {
         Sort<Integer> sort = new HeapSort<>();
+        List<Integer> result = sort.sort(randomList);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testMergeSort() {
+        Sort<Integer> sort = new MergeSort<>();
         List<Integer> result = sort.sort(randomList);
         System.out.println(result);
     }
