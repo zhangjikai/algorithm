@@ -10,21 +10,61 @@ public class MergeSort<T extends Comparable> implements Sort<T> {
     @Override
     public List<T> sort(List<T> randomData) {
 
-        mSort(randomData, 0, randomData.size() - 1);
+        //recursiveSort(randomData, 0, randomData.size() - 1);
+
+
+        nonRecursiveSort(randomData);
         return randomData;
     }
 
-    private void mSort(List<T> randomData, int start, int end) {
+    /**
+     * 递归实现
+     *
+     * @param randomData
+     * @param start
+     * @param end
+     */
+    private void recursiveSort(List<T> randomData, int start, int end) {
         if (start >= end) {
             return;
         }
         int center = (start + end) / 2;
-        mSort(randomData, start, center);
-        mSort(randomData, center + 1, end);
+        recursiveSort(randomData, start, center);
+        recursiveSort(randomData, center + 1, end);
         merge(randomData, start, center, end);
         //System.out.println(randomData);
-
     }
+
+    /**
+     * 非递归实现
+     *
+     * @param randomData
+     */
+    private void nonRecursiveSort(List<T> randomData) {
+
+        int interval = 1;
+        int size = randomData.size();
+        int start, end;
+        int len;
+        while (interval <= size) {
+            start = 0;
+            len = interval * 2;
+
+            while (start + len < randomData.size()) {
+                merge(randomData, start, start + interval - 1, start + len - 1);
+                start += len;
+            }
+
+            // 最后剩余的不等长的两个区间进行合并
+            if (start + interval < randomData.size()) {
+                merge(randomData, start, start + interval - 1, randomData.size() - 1);
+            }
+
+
+            interval *= 2;
+        }
+    }
+
 
     private void merge(List<T> randomData, int start, int center, int end) {
         T copies[] = (T[]) new Comparable[end - start + 1];
@@ -50,17 +90,9 @@ public class MergeSort<T extends Comparable> implements Sort<T> {
             copies[index++] = randomData.get(j++);
         }
 
-
-        System.out.printf("%d %d %d copies: ", start, center, end);
-        for (T t : copies) {
-            System.out.print(t + " ");
-        }
-        System.out.println();
-
         index = 0;
         for (i = start; i <= end; i++) {
             randomData.set(i, copies[index++]);
         }
-
     }
 }

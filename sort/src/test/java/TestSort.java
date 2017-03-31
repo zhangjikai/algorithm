@@ -17,12 +17,16 @@ public class TestSort {
     @Before
     public void init() {
         int[] arr = new int[]{49, 38, 65, 97, 76, 13, 27, 49};
-        arr = new int[]{49, 38, 65, 97, 76, 13, 27, 49, 55, 04};
+        arr = new int[]{49, 38, 65, 97, 76, 13, 27, 49, 55, 4,2};
         //arr = new int[]{ 1};
         randomList = new ArrayList<>();
         for (int i : arr) {
             randomList.add(i);
         }
+
+        /*for(int i = 0; i < 100; i++) {
+            randomList.add((int)(Math.random() * 1000));
+        }*/
     }
 
     @Test
