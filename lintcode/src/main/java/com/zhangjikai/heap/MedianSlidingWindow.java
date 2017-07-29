@@ -7,7 +7,6 @@ import java.util.*;
  */
 public class MedianSlidingWindow {
 
-
     public ArrayList<Integer> medianSlidingWindow(int[] nums, int k) {
         ArrayList<Integer> results = new ArrayList<>();
         if (nums == null || nums.length == 0 || k == 0) {
