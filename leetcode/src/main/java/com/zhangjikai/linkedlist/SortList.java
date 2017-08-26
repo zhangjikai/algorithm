@@ -24,7 +24,6 @@ public class SortList {
         }
         //System.out.println(slowNode.val);
 
-
         ListNode rightNode = sortList(slowNode.next);
         slowNode.next = null;
         ListNode leftNode = sortList(head);
